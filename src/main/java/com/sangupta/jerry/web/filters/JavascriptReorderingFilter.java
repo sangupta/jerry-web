@@ -148,7 +148,7 @@ public class JavascriptReorderingFilter implements Filter {
         byte[] alteredResponse = document.outerHtml().getBytes(encoding);
 
         // send back this HTML response
-        ((HttpServletResponse) servletResponse).addHeader("X-Unity-Reordered", "true");
+        ((HttpServletResponse) servletResponse).addHeader("X-Jerry-Reordered", "true");
         wrapper.copyToResponse(servletResponse, alteredResponse);
     }
 
