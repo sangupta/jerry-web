@@ -21,6 +21,7 @@
 
 package com.sangupta.jerry.util;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -30,13 +31,33 @@ import javax.servlet.http.HttpServletRequest;
  *
  */
 public class RequestUtils {
+	
+	/**
+	 * Extract the base URI and strip off the context path as well as any
+	 * JSESSIONID that is appended to the URI.
+	 * 
+	 * @param request
+	 *            the {@link ServletRequest} object
+	 * 
+	 * @return the extracted URI path
+	 */
+	public static String extractUri(ServletRequest request) {
+		if(!(request instanceof HttpServletRequest)) {
+			throw new IllegalArgumentException("Request is not of HttpServletRequest type");
+		}
+		
+		return extractUri((HttpServletRequest) request);
+	}
 
 	/**
 	 * Extract the base URI and strip off the context path as well as any
 	 * JSESSIONID that is appended to the URI.
 	 * 
 	 * @param request
-	 * @return
+	 *            the {@link HttpServletRequest} object
+	 * 
+	 * @return the extracted URI path
+	 * 
 	 */
 	public static String extractUri(HttpServletRequest request) {
 		// extract the URL
