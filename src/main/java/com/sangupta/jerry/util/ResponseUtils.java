@@ -38,17 +38,24 @@ import com.sangupta.jerry.constants.HttpStatusCode;
 public class ResponseUtils {
 	
 	/**
-	 * Write the given response in UTF-8 encoding to the given {@link HttpServletResponse} object.
+	 * Write the given response in UTF-8 encoding to the given
+	 * {@link HttpServletResponse} object.
 	 * 
-	 * @param response the {@link HttpServletResponse} to write data to
+	 * @param response
+	 *            the {@link HttpServletResponse} to write data to
 	 * 
-	 * @param data the data that needs to be written to the stream
+	 * @param data
+	 *            the data that needs to be written to the stream
 	 * 
-	 * @param mimeType the MIME type of the data being written
+	 * @param mimeType
+	 *            the MIME type of the data being written
 	 * 
-	 * @throws IOException if something fails while writing to {@link HttpServletResponse}.
+	 * @throws IOException
+	 *             if something fails while writing to
+	 *             {@link HttpServletResponse}.
 	 * 
-	 * @throws NullPointerException if {@link HttpServletResponse} object is <code>null</code>
+	 * @throws NullPointerException
+	 *             if {@link HttpServletResponse} object is <code>null</code>
 	 * 
 	 */
 	public static void sendResponse(HttpServletResponse response, String data, String mimeType) throws IOException {
@@ -61,21 +68,58 @@ public class ResponseUtils {
 	}
 
 	/**
-	 * Push the given data as a file to the client browser for downloading. The response is written in such
-	 * a way so that the client browser displays a dailog for downloading the file.
+	 * Write the given byte array as response to the given
+	 * {@link HttpServletResponse} object
 	 * 
-	 * @param response the {@link HttpServletResponse} object to write to
+	 * @param response
+	 *            the {@link HttpServletResponse} to write data to
 	 * 
-	 * @param data the data that needs to be sent to client
+	 * @param bytes
+	 *            the bytes that need to be sent
 	 * 
-	 * @param fileName the filename to be used by browsers when displaying 'Save As' dialog
+	 * @param mimeType
+	 *            the MIME type of the data being written
 	 * 
-	 * @param mimeType the MIME type of the data being written
+	 * @throws IOException
+	 *             if something fails while writing to
+	 *             {@link HttpServletResponse}.
 	 * 
-	 * @throws IOException if something fails when writing to {@link HttpServletResponse} object
+	 * @throws NullPointerException
+	 *             if {@link HttpServletResponse} object is <code>null</code>
+	 */
+	public static void sendResponse(HttpServletResponse response, byte[] bytes, String mimeType) throws IOException {
+		response.setContentType(mimeType + "; charset=UTF-8");
+		response.setStatus(HttpStatusCode.OK);
+		response.setContentLength(bytes.length);
+		response.setCharacterEncoding("UTF-8");
+		response.getOutputStream().write(bytes);
+	}
+
+	/**
+	 * Push the given data as a file to the client browser for downloading. The
+	 * response is written in such a way so that the client browser displays a
+	 * dailog for downloading the file.
 	 * 
-	 * @throws NullPointerException if {@link HttpServletResponse} object is <code>null</code>, or if
-	 * data is <code>null</code>
+	 * @param response
+	 *            the {@link HttpServletResponse} object to write to
+	 * 
+	 * @param data
+	 *            the data that needs to be sent to client
+	 * 
+	 * @param fileName
+	 *            the filename to be used by browsers when displaying 'Save As'
+	 *            dialog
+	 * 
+	 * @param mimeType
+	 *            the MIME type of the data being written
+	 * 
+	 * @throws IOException
+	 *             if something fails when writing to
+	 *             {@link HttpServletResponse} object
+	 * 
+	 * @throws NullPointerException
+	 *             if {@link HttpServletResponse} object is <code>null</code>,
+	 *             or if data is <code>null</code>
 	 * 
 	 */
 	public static void pushForUserDownload(HttpServletResponse response, String data, String fileName, String mimeType) throws IOException {
@@ -94,19 +138,26 @@ public class ResponseUtils {
 	}
 
 	/**
-	 * Write the given byte array to the {@link HttpServletResponse} object asking the client
-	 * browser to present a dialog to save the file. The MIME type used is <code>application/octet-stream</code>
-	 * to allow for binary file downloads.
+	 * Write the given byte array to the {@link HttpServletResponse} object
+	 * asking the client browser to present a dialog to save the file. The MIME
+	 * type used is <code>application/octet-stream</code> to allow for binary
+	 * file downloads.
 	 * 
-	 * @param response the {@link HttpServletResponse} object to write to
+	 * @param response
+	 *            the {@link HttpServletResponse} object to write to
 	 * 
-	 * @param bytes the bytes to write
+	 * @param bytes
+	 *            the bytes to write
 	 * 
-	 * @param fileName the file name to be presented to client browser
+	 * @param fileName
+	 *            the file name to be presented to client browser
 	 * 
-	 * @throws IOException if something fails when writing to {@link HttpServletResponse} object
+	 * @throws IOException
+	 *             if something fails when writing to
+	 *             {@link HttpServletResponse} object
 	 * 
-	 * @throws NullPointerException if {@link HttpServletResponse} object is <code>null</code>
+	 * @throws NullPointerException
+	 *             if {@link HttpServletResponse} object is <code>null</code>
 	 * 
 	 */
 	public static void pushForUserDownload(HttpServletResponse response, byte[] bytes, String fileName) throws IOException {
@@ -124,15 +175,17 @@ public class ResponseUtils {
 	}
 
 	/**
-	 * Make sure that IE8+ do not sniff for MIME when already
-	 * specified in response.
+	 * Make sure that IE8+ do not sniff for MIME when already specified in
+	 * response.
 	 * 
-	 * Refer to http://blogs.msdn.com/b/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx
-	 * for more details.
+	 * Refer to
+	 * http://blogs.msdn.com/b/ie/archive/2008/07/02/ie8-security-part-vcomprehensive-protection.aspx for more details.
 	 * 
-	 * @param repsonse the {@link HttpServletResponse} object to use
+	 * @param repsonse
+	 *            the {@link HttpServletResponse} object to use
 	 * 
-	 * @throws NullPointerException if {@link HttpServletResponse} object is <code>null</code>
+	 * @throws NullPointerException
+	 *             if {@link HttpServletResponse} object is <code>null</code>
 	 * 
 	 */
 	public static void sendNoSniff(HttpServletResponse repsonse) {
@@ -140,17 +193,21 @@ public class ResponseUtils {
 	}
 	
 	/**
-	 * Instruct the response to only allow file download, and not
-	 * let it open directly in the client browser.
+	 * Instruct the response to only allow file download, and not let it open
+	 * directly in the client browser.
 	 * 
-	 * Refer to http://blogs.msdn.com/b/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx
-	 * for more details.
+	 * Refer to
+	 * http://blogs.msdn.com/b/ie/archive/2008/07/02/ie8-security-part-vcomprehensive-protection.aspx for more details.
 	 * 
-	 * @param response the {@link HttpServletResponse} object to use
+	 * @param response
+	 *            the {@link HttpServletResponse} object to use
 	 * 
-	 * @param fileName the fileName to present to client browser for allowing download of file
+	 * @param fileName
+	 *            the fileName to present to client browser for allowing
+	 *            download of file
 	 * 
-	 * @throws NullPointerException if {@link HttpServletResponse} object is <code>null</code>
+	 * @throws NullPointerException
+	 *             if {@link HttpServletResponse} object is <code>null</code>
 	 * 
 	 */
 	public static void setOnlyDownload(HttpServletResponse response, String fileName) {
