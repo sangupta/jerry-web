@@ -37,6 +37,9 @@ import org.slf4j.LoggerFactory;
 import com.sangupta.jerry.util.LogUtils;
 
 /**
+ * Logs details of the incoming request using a {@link Logger} instance. The
+ * information is logged at INFO level.
+ * 
  * @author sangupta
  *
  */
@@ -51,13 +54,16 @@ public class RequestCapturingFilter implements Filter {
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		if(!(request instanceof HttpServletRequest)) {
-			chain.doFilter(request, response);
-			return;
+		if(LOGGER.isInfoEnabled()) {
+			if(!(request instanceof HttpServletRequest)) {
+				chain.doFilter(request, response);
+				return;
+			}
+	
+			HttpServletRequest hsr = (HttpServletRequest) request;
+			LOGGER.info(LogUtils.buildLogMessage(hsr, "Request recevied as: "));
 		}
-
-		HttpServletRequest hsr = (HttpServletRequest) request;
-		LOGGER.info(LogUtils.buildLogMessage(hsr, "Proxied request recevied as: "));
+		
 		chain.doFilter(request, response);
 	}
 
