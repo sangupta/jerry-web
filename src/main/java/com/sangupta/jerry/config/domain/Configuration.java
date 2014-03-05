@@ -30,7 +30,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  * Holds a pair of configuration values.
  * 
  * @author sangupta
- *
+ * @since 0.6.0
  */
 @XStreamAlias("configuration")
 public class Configuration {

@@ -40,7 +40,7 @@ import com.sangupta.jerry.util.StringUtils;
  * the data store.
  * 
  * @author sangupta
- *
+ * @since 0.6.0
  */
 public class MongoDBConfigurationServiceImpl implements ConfigurationService {
 	

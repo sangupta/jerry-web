@@ -29,7 +29,7 @@ import com.sangupta.jerry.config.domain.Configuration;
  * Handles the configuration of the application.
  * 
  * @author sangupta
- * 
+ * @since 0.6.0
  */
 public interface ConfigurationService {
 	
