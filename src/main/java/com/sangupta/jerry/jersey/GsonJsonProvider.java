@@ -1,9 +1,9 @@
 /**
  *
- * jerry - Common Java Functionality
- * Copyright (c) 2012, Sandeep Gupta
+ * jerry-web - Common Java Functionality
+ * Copyright (c) 2012-2014, Sandeep Gupta
  * 
- * http://www.sangupta/projects/jerry
+ * http://sangupta.com/projects/jerry
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
+import java.nio.charset.Charset;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
@@ -65,12 +66,14 @@ public class GsonJsonProvider extends AbstractMessageReaderWriterProvider<Object
     }
 
     /**
-     * Returns the charset as a string depending on the encoding specified, or
-     * the usual default of <code>UTF-8</code>.
-     * 
-     * @param m
-     * @return
-     */
+	 * Returns the charset as a string depending on the encoding specified, or
+	 * the usual default of <code>UTF-8</code>.
+	 * 
+	 * @param m
+	 *            the {@link MediaType} provided
+	 * 
+	 * @return the {@link Charset} value as string
+	 */
     protected static String getCharsetAsString(MediaType m) {
         if (m == null) {
             return DEFAULT_ENCODING;

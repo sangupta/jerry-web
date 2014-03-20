@@ -8,7 +8,7 @@
 	<description>Jerry tag library.</description>
 	<tlib-version>1.2</tlib-version>
 	<short-name>jerry</short-name>
-	<uri>http://www.sangupta.com/projects/jerry</uri>
+	<uri>http://sangupta.com/projects/jerry</uri>
 
 	<!-- Formats a given date in a standard default pattern, or used supplied pattern. -->
 	<tag>
