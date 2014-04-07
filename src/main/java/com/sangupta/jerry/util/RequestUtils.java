@@ -77,4 +77,21 @@ public class RequestUtils {
 		
 		return url;
 	}
+	
+	/**
+	 * Return the URL fragment with the request context path appended.
+	 * 
+	 * @param request
+	 *            the {@link HttpServletRequest} instance of the incoming
+	 *            request
+	 * 
+	 * @param pathFragment
+	 *            the path fragment that needs to be converted to URL
+	 * 
+	 * @return the fragment with request context prefixed
+	 */
+	public static String getPath(HttpServletRequest request, String pathFragment) {
+		return UriUtils.addWebPaths(request.getContextPath(), pathFragment);
+	}
+	
 }
