@@ -37,8 +37,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.ext.Provider;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
-import com.sangupta.jerry.util.GsonUtils;
+import com.google.gson.GsonBuilder;
 import com.sun.jersey.core.provider.AbstractMessageReaderWriterProvider;
 
 /**
@@ -54,6 +55,8 @@ import com.sun.jersey.core.provider.AbstractMessageReaderWriterProvider;
 public class GsonJsonProvider extends AbstractMessageReaderWriterProvider<Object> {
 
     private static final String DEFAULT_ENCODING = "utf-8";
+    
+    public static final Gson GSON = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.IDENTITY).setDateFormat("yyyy-MM-dd hh:mm:ss ZZZ").create();
     
     @Override
     public boolean isReadable(Class<?> type, Type genericType, Annotation[] annotations, MediaType arg3) {
@@ -84,13 +87,12 @@ public class GsonJsonProvider extends AbstractMessageReaderWriterProvider<Object
 
     public Object readFrom(Class<Object> aClass, Type genericType, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, String> map, InputStream stream) throws IOException, WebApplicationException  {
         String encoding = getCharsetAsString(mediaType);
-        Gson gson = GsonUtils.getGson();
-        return gson.fromJson(new InputStreamReader(stream, encoding), aClass);
+        return GSON.fromJson(new InputStreamReader(stream, encoding), aClass);
     }
 
     public void writeTo(Object o, Class<?> aClass, Type type, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, Object> map, OutputStream stream) throws IOException, WebApplicationException {
         String encoding = getCharsetAsString(mediaType);
-        String json = GsonUtils.getGson().toJson(o, type);
+        String json = GSON.toJson(o, type);
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(stream, encoding);
         outputStreamWriter.write(json);
         outputStreamWriter.flush();
