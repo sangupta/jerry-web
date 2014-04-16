@@ -66,6 +66,11 @@
 			<artifactId>jerry-core</artifactId>
 			<version>0.9.0</version>
 		</dependency>
+        <dependency>
+            <groupId>com.sangupta</groupId>
+            <artifactId>jerry-services</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 		
 		<!-- Servlet APIs and all -->
 		<dependency>
@@ -95,20 +100,13 @@
 			<scope>provided</scope>
 		</dependency>
 		
-		<dependency>
-			<groupId>org.quartz-scheduler</groupId>
-			<artifactId>quartz</artifactId>
-			<version>2.1.6</version>
-			<scope>provided</scope>
-		</dependency>
-		
 		<!-- For serialization/deserialization utils -->
-		<dependency>
-			<groupId>com.thoughtworks.xstream</groupId>
-			<artifactId>xstream</artifactId>
-			<version>1.4.2</version>
-			<scope>provided</scope>
-		</dependency>
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>1.4.2</version>
+            <scope>provided</scope>
+        </dependency>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
