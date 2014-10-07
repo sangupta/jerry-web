@@ -39,7 +39,7 @@ import javax.ws.rs.ext.Provider;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.sangupta.jerry.util.GsonUtils;
 import com.sun.jersey.core.provider.AbstractMessageReaderWriterProvider;
 
 /**
@@ -56,7 +56,7 @@ public class GsonJsonProvider extends AbstractMessageReaderWriterProvider<Object
 
     private static final String DEFAULT_ENCODING = "utf-8";
     
-    public static final Gson GSON = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.IDENTITY).setDateFormat("yyyy-MM-dd hh:mm:ss ZZZ").create();
+    private static final Gson GSON = GsonUtils.getGson(FieldNamingPolicy.IDENTITY);
     
     @Override
     public boolean isReadable(Class<?> type, Type genericType, Annotation[] annotations, MediaType arg3) {
