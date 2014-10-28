@@ -69,7 +69,7 @@
         <dependency>
             <groupId>com.sangupta</groupId>
             <artifactId>jerry-services</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.3.0</version>
         </dependency>
 		
 		<!-- Servlet APIs and all -->
