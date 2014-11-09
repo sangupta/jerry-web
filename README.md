@@ -16,6 +16,16 @@ Release Notes
 
 **0.6.1**
 
+* Fixed date/time to output as long value in `GsonJsonProvider`
+* Added method to extract URI from ServletRequest to `RequestUtils`
+* Added method to send byte[] downstream in `ResponseUtils`
+* Added servlet filters
+ * `JavascriptMinificationFilter` - uses Google closure compiler to minify JS
+ * `JavascriptReorderingFilter` - reorder javascript tags inside HTML stream to push them to end of HTML file for faster loading of HTML page
+ * `ExceptionCatchingFilter` - catch all uncaught exceptions and log them
+* Added log guards and javadocs
+* Added missing copyright headers
+
 **0.5.0**
 
 * Added GSON based jersey JSON provider
