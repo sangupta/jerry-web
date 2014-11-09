@@ -14,7 +14,7 @@ Release Notes
 
 **Current Development**
 
-**0.6.1**
+**Release 0.6.1**
 
 * Fixed date/time to output as long value in `GsonJsonProvider`
 * Added method to extract URI from ServletRequest to `RequestUtils`
@@ -26,7 +26,7 @@ Release Notes
 * Added log guards and javadocs
 * Added missing copyright headers
 
-**0.5.0**
+**Release 0.5.0**
 
 * Added GSON based jersey JSON provider
 * Added XStream based jersey XML provider
