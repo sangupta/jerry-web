@@ -11,7 +11,7 @@
 
 	<groupId>com.sangupta</groupId>
 	<artifactId>jerry-web</artifactId>
-	<version>0.6.1</version>
+	<version>0.6.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	
 	<name>Jerry Web-library project</name>
