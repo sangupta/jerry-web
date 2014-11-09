@@ -9,6 +9,45 @@ to work with java.servlet cookies, request/response and more.
 
 For more information on the project, refer to https://github.com/sangupta/jerry project.
 
+Release Notes
+-------------
+
+**Current Development**
+
+**0.6.1**
+
+**0.5.0**
+
+* Added GSON based jersey JSON provider
+* Added XStream based jersey XML provider
+* Added servlet filters
+ * LeverageBrowserCacheFilter
+ * RequestCapturingFilter
+* Added JSP custom tags
+ * UserName
+ * TimeAgo
+ * SignedIn
+ * RadioButton
+ * JavascriptInclude
+ * HexFormat
+ * EncodeUriComponent
+ * DateFormat
+ * CheckBox
+ * Base64
+ * Base62
+ * Anonymous
+ * AllJavascript
+* Added utility classes
+ * RequestUtils
+ * ResponseUtils
+ * LogUtils
+ * CookieUtils
+* Added convenience classes
+ * UserAwareHttpServletRequestWrapper
+ * ByteArrayServletOutputStream
+ * HttpServletResponseWrapper
+ * ModifiedServletResponse
+
 Downloads
 ---------
 
