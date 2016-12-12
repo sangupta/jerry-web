@@ -27,6 +27,17 @@
 		</attribute>
 	</tag>
 	
+	<tag>
+		<name>formatSize</name>
+		<tag-class>com.sangupta.jerry.taglib.FormatSizeTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>bytes</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
 	<!-- Formats the given value into hex -->
 	<tag>
 		<name>hex</name>
@@ -87,6 +98,11 @@
 		</attribute>
 		<attribute>
 			<name>millis</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>elapsed</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>

@@ -22,93 +22,48 @@
 package com.sangupta.jerry.taglib;
 
 import java.io.IOException;
-import java.util.Date;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
-import com.sangupta.jerry.util.TimeDurationUtils;
+import com.sangupta.jerry.util.ReadableUtils;
 
 /**
  * @author sangupta
  *
  */
-public class TimeAgoTag extends SimpleTagSupport {
+public class FormatSizeTag extends SimpleTagSupport {
 	
-	private Date time;
-	
-	private long millis = -1;
-	
-	private long elapsed = -1;
+	private long bytes;
 	
 	/**
 	 * @see javax.servlet.jsp.tagext.SimpleTagSupport#doTag()
 	 */
 	@Override
 	public void doTag() throws JspException, IOException {
+		if(this.bytes < 0) {
+			return;
+		}
+		
 		final JspWriter out = getJspContext().getOut();
-		
-		if(this.time != null) {
-			out.write(TimeDurationUtils.ago(this.time));
-			return;
-		}
-		
-		if(this.elapsed > 0) {
-			out.write(TimeDurationUtils.ago(System.currentTimeMillis() - this.elapsed));
-			return;
-		}
-		
-		if(this.millis == 0) {
-			out.print("right now");
-			return;
-		}
-
-		out.write(TimeDurationUtils.ago(this.millis));
+		out.write(ReadableUtils.getReadableByteCount(bytes));
 	}
 	
 	// Usual accessors follow
 
 	/**
-	 * @return the time
+	 * @return the bytes
 	 */
-	public Date getTime() {
-		return time;
+	public long getBytes() {
+		return bytes;
 	}
 
 	/**
-	 * @param time the time to set
+	 * @param bytes the bytes to set
 	 */
-	public void setTime(Date time) {
-		this.time = time;
-	}
-
-	/**
-	 * @return the millis
-	 */
-	public long getMillis() {
-		return millis;
-	}
-
-	/**
-	 * @param millis the millis to set
-	 */
-	public void setMillis(long millis) {
-		this.millis = millis;
-	}
-
-	/**
-	 * @return the elapsed
-	 */
-	public long getElapsed() {
-		return elapsed;
-	}
-
-	/**
-	 * @param elapsed the elapsed to set
-	 */
-	public void setElapsed(long elapsed) {
-		this.elapsed = elapsed;
+	public void setBytes(long bytes) {
+		this.bytes = bytes;
 	}
 
 }
