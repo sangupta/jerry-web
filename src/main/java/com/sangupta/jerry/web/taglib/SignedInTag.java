@@ -19,7 +19,7 @@
  * 
  */
 
-package com.sangupta.jerry.taglib;
+package com.sangupta.jerry.web.taglib;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTagSupport;

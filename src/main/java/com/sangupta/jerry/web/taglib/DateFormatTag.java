@@ -19,7 +19,7 @@
  * 
  */
 
-package com.sangupta.jerry.taglib;
+package com.sangupta.jerry.web.taglib;
 
 import java.io.File;
 import java.io.IOException;

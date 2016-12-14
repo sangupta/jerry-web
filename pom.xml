@@ -11,7 +11,7 @@
 
 	<groupId>com.sangupta</groupId>
 	<artifactId>jerry-web</artifactId>
-	<version>0.6.2-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	
 	<name>Jerry Web - Servlet Library</name>
@@ -58,7 +58,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -66,11 +66,6 @@
 			<artifactId>jerry-core</artifactId>
 			<version>2.4.0</version>
 		</dependency>
-        <dependency>
-            <groupId>com.sangupta</groupId>
-            <artifactId>jerry-services</artifactId>
-            <version>0.3.0</version>
-        </dependency>
 		
 		<!-- Servlet APIs and all -->
 		<dependency>
@@ -86,112 +81,18 @@
 			<scope>provided</scope>
 		</dependency>
 		
-		<!-- Spring supporrt -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-			<version>4.1.1.RELEASE</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-mongodb</artifactId>
-			<version>1.6.0.RELEASE</version>
-			<scope>provided</scope>
-		</dependency>
-		
-		<!-- For serialization/deserialization utils -->
-        <dependency>
-            <groupId>com.thoughtworks.xstream</groupId>
-            <artifactId>xstream</artifactId>
-            <version>1.4.7</version>
-            <scope>provided</scope>
-        </dependency>
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.3</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<!-- Jersey -->
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-core</artifactId>
-			<version>1.17.1</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey.contribs</groupId>
-			<artifactId>jersey-spring</artifactId>
-			<version>1.18.2</version>
-			<scope>provided</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-beans</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-core</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-asm</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-context</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-web</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-orm</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-tx</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-webmvc</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-aop</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		
-		<!-- Grizzly -->
-		<dependency>
-			<groupId>com.sun.grizzly</groupId>
-			<artifactId>grizzly-servlet-webserver</artifactId>
-			<version>1.9.60</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-grizzly</artifactId>
-			<version>1.18.2</version>
-			<scope>provided</scope>
-		</dependency>
-		
 		<!-- jsoup -->
 		<dependency>
 		    <groupId>org.jsoup</groupId>
 		    <artifactId>jsoup</artifactId>
-		    <version>1.8.1</version>
+		    <version>1.10.1</version>
 		    <scope>provided</scope>
 		    <optional>true</optional>
 		</dependency>
 		<dependency>
 		    <groupId>com.google.javascript</groupId>
 		    <artifactId>closure-compiler</artifactId>
-		    <version>v20141023</version>
+		    <version>v20161201</version>
 		    <scope>provided</scope>
 		    <optional>true</optional>
 		</dependency>

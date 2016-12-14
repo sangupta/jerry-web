@@ -19,51 +19,75 @@
  * 
  */
 
-package com.sangupta.jerry.taglib;
+package com.sangupta.jerry.web.taglib;
 
 import java.io.IOException;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
-import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 import com.sangupta.jerry.util.AssertUtils;
-import com.sangupta.jerry.util.UriUtils;
 
 /**
- * Encodes the given value as uri-component and either writes it out
- * or saves as a request attribute.
- * 
  * @author sangupta
  *
  */
-public class EncodeUriComponentTag extends SimpleTagSupport {
+public class RadioButtonTag extends SimpleTagSupport {
+	
+	private String id;
+	
+	private String name;
 	
 	private String value;
 	
-	private String var;
+	private String current;
 	
+	/**
+	 * @see javax.servlet.jsp.tagext.SimpleTagSupport#doTag()
+	 */
 	@Override
 	public void doTag() throws JspException, IOException {
-		if(AssertUtils.isEmpty(value)) {
-			return;
+		JspWriter out = getJspContext().getOut();
+		
+		out.write("<input type=\"radio\" ");
+		
+		if(AssertUtils.isNotEmpty(this.id)) {
+			out.write("id=\"");
+			out.write(this.id);
+			out.write("\" ");
 		}
 		
-		String encValue = UriUtils.encodeURIComponent(this.value);
+		out.write("name=\"");
+		out.write(this.name);
+		out.write("\" ");
 		
-		if(AssertUtils.isEmpty(this.var)) {
-			JspWriter out = getJspContext().getOut();
-			out.write(encValue);
-			return;
+		out.write("value=\"");
+		out.write(this.value);
+		out.write("\" ");
+		
+		if(this.value.equals(this.current)) {
+			out.write("checked=\"checked\" ");
 		}
 		
-		final HttpServletRequest request = (HttpServletRequest) ((PageContext) getJspContext()).getRequest();
-		request.setAttribute(this.var, encValue);
+		out.write(">\n");
 	}
 
-	// Usual accessor's follow
+	// Usual accessors follow
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	/**
 	 * @return the value
@@ -80,17 +104,31 @@ public class EncodeUriComponentTag extends SimpleTagSupport {
 	}
 
 	/**
-	 * @return the var
+	 * @return the id
 	 */
-	public String getVar() {
-		return var;
+	public String getId() {
+		return id;
 	}
 
 	/**
-	 * @param var the var to set
+	 * @param id the id to set
 	 */
-	public void setVar(String var) {
-		this.var = var;
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the current
+	 */
+	public String getCurrent() {
+		return current;
+	}
+
+	/**
+	 * @param current the current to set
+	 */
+	public void setCurrent(String current) {
+		this.current = current;
 	}
 	
 }

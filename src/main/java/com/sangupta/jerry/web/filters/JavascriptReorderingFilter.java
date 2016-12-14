@@ -43,7 +43,7 @@ import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.sangupta.jerry.web.HttpServletResponseWrapperImpl;
+import com.sangupta.jerry.web.wrapper.HttpServletResponseWrapperImpl;
 
 /**
  * A Servlet {@link Filter} that reorganizes and pushes all JavaScript

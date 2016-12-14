@@ -19,7 +19,7 @@
  * 
  */
 
-package com.sangupta.jerry.taglib;
+package com.sangupta.jerry.web.taglib;
 
 import java.io.IOException;
 
@@ -27,17 +27,18 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
-import com.sangupta.jerry.encoder.Base62Encoder;
-
 /**
+ * 
  * @author sangupta
  *
  */
-public class Base62Tag extends SimpleTagSupport {
+public class OptionTag extends SimpleTagSupport {
 	
-	private Long encode;
+	private String value;
 	
-	private String decode;
+	private String text;
+	
+	private String current;
 	
 	/**
 	 * @see javax.servlet.jsp.tagext.SimpleTagSupport#doTag()
@@ -46,47 +47,65 @@ public class Base62Tag extends SimpleTagSupport {
 	public void doTag() throws JspException, IOException {
 		JspWriter out = getJspContext().getOut();
 		
-		if(this.encode != null) {
-			out.write(Base62Encoder.encode(this.encode));
-			return;
+		out.write("<option ");
+		
+		out.write("value=\"");
+		out.write(this.value);
+		out.write("\" ");
+		
+		if(this.value.equals(this.current)) {
+			out.write("selected=\"selected\" ");
 		}
 		
-		if(this.decode != null) {
-			out.write(String.valueOf(Base62Encoder.decode(this.decode)));
-			return;
-		}
+		out.write(">");
 		
-		throw new IllegalArgumentException("One of encode/decode params must be specified.");
+		out.write(this.text);
+		
+		out.write("</option>");
 	}
 	
 	// Usual accessors follow
 
 	/**
-	 * @return the encode
+	 * @return the value
 	 */
-	public Long getEncode() {
-		return encode;
+	public String getValue() {
+		return value;
 	}
 
 	/**
-	 * @param encode the encode to set
+	 * @param value the value to set
 	 */
-	public void setEncode(Long encode) {
-		this.encode = encode;
+	public void setValue(String value) {
+		this.value = value;
 	}
 
 	/**
-	 * @return the decode
+	 * @return the text
 	 */
-	public String getDecode() {
-		return decode;
+	public String getText() {
+		return text;
 	}
 
 	/**
-	 * @param decode the decode to set
+	 * @param text the text to set
 	 */
-	public void setDecode(String decode) {
-		this.decode = decode;
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	/**
+	 * @return the current
+	 */
+	public String getCurrent() {
+		return current;
+	}
+
+	/**
+	 * @param current the current to set
+	 */
+	public void setCurrent(String current) {
+		this.current = current;
 	}
 
 }

@@ -19,33 +19,53 @@
  * 
  */
 
-package com.sangupta.jerry.taglib;
+package com.sangupta.jerry.web.taglib;
+
+import java.io.IOException;
 
 import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.tagext.BodyTagSupport;
+import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 import com.sangupta.jerry.security.SecurityContext;
 
 /**
  * @author sangupta
- * 
+ *
  */
-public class AnonymousTag extends BodyTagSupport {
-
-	/**
-	 * Generated via Eclipse
-	 */
-	private static final long serialVersionUID = -326139674030905846L;
+public class UserNameTag extends SimpleTagSupport {
+	
+	private String onAnonymous = "anonymous";
 	
 	/**
-	 * @see javax.servlet.jsp.tagext.BodyTagSupport#doAfterBody()
+	 * @see javax.servlet.jsp.tagext.SimpleTagSupport#doTag()
 	 */
 	@Override
-	public int doStartTag() throws JspException {
+	public void doTag() throws JspException, IOException {
+		JspWriter out = getJspContext().getOut();
+		
 		if(SecurityContext.isAnonymousUser()) {
-			return EVAL_BODY_INCLUDE;
+			out.write(onAnonymous);
+			return;
 		}
 		
-		return SKIP_BODY;
+		out.write(SecurityContext.getPrincipal().getName());
 	}
+	
+	// Usual accessors follow
+
+	/**
+	 * @return the onAnonymous
+	 */
+	public String getOnAnonymous() {
+		return onAnonymous;
+	}
+
+	/**
+	 * @param onAnonymous the onAnonymous to set
+	 */
+	public void setOnAnonymous(String onAnonymous) {
+		this.onAnonymous = onAnonymous;
+	}
+
 }

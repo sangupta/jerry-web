@@ -19,93 +19,96 @@
  * 
  */
 
-package com.sangupta.jerry.taglib;
+package com.sangupta.jerry.web.taglib;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
+import com.sangupta.jerry.util.TimeDurationUtils;
+
 /**
- * 
  * @author sangupta
  *
  */
-public class OptionTag extends SimpleTagSupport {
+public class TimeAgoTag extends SimpleTagSupport {
 	
-	private String value;
+	private Date time;
 	
-	private String text;
+	private long millis = -1;
 	
-	private String current;
+	private long elapsed = -1;
 	
 	/**
 	 * @see javax.servlet.jsp.tagext.SimpleTagSupport#doTag()
 	 */
 	@Override
 	public void doTag() throws JspException, IOException {
-		JspWriter out = getJspContext().getOut();
+		final JspWriter out = getJspContext().getOut();
 		
-		out.write("<option ");
-		
-		out.write("value=\"");
-		out.write(this.value);
-		out.write("\" ");
-		
-		if(this.value.equals(this.current)) {
-			out.write("selected=\"selected\" ");
+		if(this.time != null) {
+			out.write(TimeDurationUtils.ago(this.time));
+			return;
 		}
 		
-		out.write(">");
+		if(this.elapsed > 0) {
+			out.write(TimeDurationUtils.ago(System.currentTimeMillis() - this.elapsed));
+			return;
+		}
 		
-		out.write(this.text);
-		
-		out.write("</option>");
+		if(this.millis == 0) {
+			out.print("right now");
+			return;
+		}
+
+		out.write(TimeDurationUtils.ago(this.millis));
 	}
 	
 	// Usual accessors follow
 
 	/**
-	 * @return the value
+	 * @return the time
 	 */
-	public String getValue() {
-		return value;
+	public Date getTime() {
+		return time;
 	}
 
 	/**
-	 * @param value the value to set
+	 * @param time the time to set
 	 */
-	public void setValue(String value) {
-		this.value = value;
+	public void setTime(Date time) {
+		this.time = time;
 	}
 
 	/**
-	 * @return the text
+	 * @return the millis
 	 */
-	public String getText() {
-		return text;
+	public long getMillis() {
+		return millis;
 	}
 
 	/**
-	 * @param text the text to set
+	 * @param millis the millis to set
 	 */
-	public void setText(String text) {
-		this.text = text;
+	public void setMillis(long millis) {
+		this.millis = millis;
 	}
 
 	/**
-	 * @return the current
+	 * @return the elapsed
 	 */
-	public String getCurrent() {
-		return current;
+	public long getElapsed() {
+		return elapsed;
 	}
 
 	/**
-	 * @param current the current to set
+	 * @param elapsed the elapsed to set
 	 */
-	public void setCurrent(String current) {
-		this.current = current;
+	public void setElapsed(long elapsed) {
+		this.elapsed = elapsed;
 	}
 
 }

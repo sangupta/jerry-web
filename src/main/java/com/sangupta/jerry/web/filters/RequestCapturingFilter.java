@@ -34,7 +34,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.sangupta.jerry.util.LogUtils;
+import com.sangupta.jerry.util.GsonUtils;
 
 /**
  * Logs details of the incoming request using a {@link Logger} instance. The
@@ -61,7 +61,9 @@ public class RequestCapturingFilter implements Filter {
 			}
 	
 			HttpServletRequest hsr = (HttpServletRequest) request;
-			LOGGER.info(LogUtils.buildLogMessage(hsr, "Request recevied as: "));
+			if(LOGGER.isInfoEnabled()) {
+				LOGGER.info("Request received as: {}", GsonUtils.getGson().toJson(hsr));
+			}
 		}
 		
 		chain.doFilter(request, response);

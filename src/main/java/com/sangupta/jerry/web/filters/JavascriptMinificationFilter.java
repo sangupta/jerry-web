@@ -49,8 +49,8 @@ import com.google.javascript.jscomp.Result;
 import com.google.javascript.jscomp.SourceFile;
 import com.sangupta.jerry.util.DateUtils;
 import com.sangupta.jerry.util.ResponseUtils;
-import com.sangupta.jerry.web.HttpServletResponseWrapperImpl;
-import com.sangupta.jerry.web.ModifiedServletResponse;
+import com.sangupta.jerry.web.wrapper.HttpServletResponseWrapperImpl;
+import com.sangupta.jerry.web.wrapper.ModifiedServletResponse;
 
 /**
  * Servlet {@link Filter} that compresses all JS and CSS files

@@ -19,7 +19,7 @@
  * 
  */
 
-package com.sangupta.jerry.security;
+package com.sangupta.jerry.web.wrapper;
 
 import java.security.Principal;
 

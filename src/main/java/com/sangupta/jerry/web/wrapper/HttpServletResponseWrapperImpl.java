@@ -19,7 +19,7 @@
  * 
  */
 
-package com.sangupta.jerry.web;
+package com.sangupta.jerry.web.wrapper;
 
 import java.io.IOException;
 import java.io.OutputStream;

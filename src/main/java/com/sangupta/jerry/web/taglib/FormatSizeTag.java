@@ -19,7 +19,7 @@
  * 
  */
 
-package com.sangupta.jerry.taglib;
+package com.sangupta.jerry.web.taglib;
 
 import java.io.IOException;
 
@@ -27,51 +27,43 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
+import com.sangupta.jerry.util.ReadableUtils;
+
 /**
- * Formats a given number in hex format. If number cannot be parsed as {@link Long}
- * the string is written back as is.
- * 
  * @author sangupta
  *
  */
-public class HexFormatTag extends SimpleTagSupport {
+public class FormatSizeTag extends SimpleTagSupport {
 	
-	private String value;
+	private long bytes;
 	
+	/**
+	 * @see javax.servlet.jsp.tagext.SimpleTagSupport#doTag()
+	 */
 	@Override
 	public void doTag() throws JspException, IOException {
-		if(value != null) {
-			JspWriter out = getJspContext().getOut();
-			
-			// try parsing number
-			Long num = null;
-			try {
-				num = Long.parseLong(value);
-			} catch(Exception e) {
-				out.write(value);
-				return;
-			}
-			
-			if(num != null) {
-				out.write(Long.toHexString(num));
-			}
+		if(this.bytes < 0) {
+			return;
 		}
-	}
-
-	// Usual accessor's follow
-
-	/**
-	 * @return the value
-	 */
-	public String getValue() {
-		return value;
-	}
-
-	/**
-	 * @param value the value to set
-	 */
-	public void setValue(String value) {
-		this.value = value;
+		
+		final JspWriter out = getJspContext().getOut();
+		out.write(ReadableUtils.getReadableByteCount(bytes));
 	}
 	
+	// Usual accessors follow
+
+	/**
+	 * @return the bytes
+	 */
+	public long getBytes() {
+		return bytes;
+	}
+
+	/**
+	 * @param bytes the bytes to set
+	 */
+	public void setBytes(long bytes) {
+		this.bytes = bytes;
+	}
+
 }

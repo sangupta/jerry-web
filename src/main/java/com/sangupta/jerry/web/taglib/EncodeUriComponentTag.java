@@ -19,75 +19,51 @@
  * 
  */
 
-package com.sangupta.jerry.taglib;
+package com.sangupta.jerry.web.taglib;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 import com.sangupta.jerry.util.AssertUtils;
+import com.sangupta.jerry.util.UriUtils;
 
 /**
+ * Encodes the given value as uri-component and either writes it out
+ * or saves as a request attribute.
+ * 
  * @author sangupta
  *
  */
-public class RadioButtonTag extends SimpleTagSupport {
-	
-	private String id;
-	
-	private String name;
+public class EncodeUriComponentTag extends SimpleTagSupport {
 	
 	private String value;
 	
-	private String current;
+	private String var;
 	
-	/**
-	 * @see javax.servlet.jsp.tagext.SimpleTagSupport#doTag()
-	 */
 	@Override
 	public void doTag() throws JspException, IOException {
-		JspWriter out = getJspContext().getOut();
-		
-		out.write("<input type=\"radio\" ");
-		
-		if(AssertUtils.isNotEmpty(this.id)) {
-			out.write("id=\"");
-			out.write(this.id);
-			out.write("\" ");
+		if(AssertUtils.isEmpty(value)) {
+			return;
 		}
 		
-		out.write("name=\"");
-		out.write(this.name);
-		out.write("\" ");
+		String encValue = UriUtils.encodeURIComponent(this.value);
 		
-		out.write("value=\"");
-		out.write(this.value);
-		out.write("\" ");
-		
-		if(this.value.equals(this.current)) {
-			out.write("checked=\"checked\" ");
+		if(AssertUtils.isEmpty(this.var)) {
+			JspWriter out = getJspContext().getOut();
+			out.write(encValue);
+			return;
 		}
 		
-		out.write(">\n");
+		final HttpServletRequest request = (HttpServletRequest) ((PageContext) getJspContext()).getRequest();
+		request.setAttribute(this.var, encValue);
 	}
 
-	// Usual accessors follow
-
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
+	// Usual accessor's follow
 
 	/**
 	 * @return the value
@@ -104,31 +80,17 @@ public class RadioButtonTag extends SimpleTagSupport {
 	}
 
 	/**
-	 * @return the id
+	 * @return the var
 	 */
-	public String getId() {
-		return id;
+	public String getVar() {
+		return var;
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param var the var to set
 	 */
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	/**
-	 * @return the current
-	 */
-	public String getCurrent() {
-		return current;
-	}
-
-	/**
-	 * @param current the current to set
-	 */
-	public void setCurrent(String current) {
-		this.current = current;
+	public void setVar(String var) {
+		this.var = var;
 	}
 	
 }
