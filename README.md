@@ -1,13 +1,11 @@
 jerry-web
 ==========
 
-Common Java functionality for building web applications.
+Common Java functionality for building web applications particularly working with `Servlets` and JSPs.
 
 `jerry-web` is a module library for the uber `jerry` library project. This module provides helper functionality 
-when writing Java web applications - such as common filters, request wrappers, custom tags, and utility classes
-to work with java.servlet cookies, request/response and more.
-
-For more information on the project, refer to https://github.com/sangupta/jerry project.
+when writing Java web applications - such as common filters, request wrappers, and custom JSP tags. The utility
+classes are now a part of the `jerry-core` project.
 
 Release Notes
 -------------
@@ -93,7 +91,10 @@ License
 -------
 
 ```
-Copyright (c) 2012-2014, Sandeep Gupta
+jerry-web: Common JSP functionality
+https://sangupta.com/projects/jerry-web
+
+Copyright (c) 2012-2016, Sandeep Gupta
 
 The project uses various other libraries that are subject to their
 own license terms. See the distribution libraries or the project
