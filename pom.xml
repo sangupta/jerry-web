@@ -14,8 +14,8 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	
-	<name>Jerry Web - Servlet Library</name>
-	<description>Common Java functionality for building web applications</description>
+	<name>Jerry Web</name>
+	<description>Common Servlet/JSP Functionality</description>
 	<url>https://sangupta.com/projects/jerry-web</url>
 	<inceptionYear>2012</inceptionYear>
 

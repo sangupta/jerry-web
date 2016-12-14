@@ -91,10 +91,10 @@ License
 -------
 
 ```
-jerry-web: Common JSP functionality
-https://sangupta.com/projects/jerry-web
-
+jerry-web: Common Servlet/JSP Functionality
 Copyright (c) 2012-2016, Sandeep Gupta
+
+https://sangupta.com/projects/jerry-web
 
 The project uses various other libraries that are subject to their
 own license terms. See the distribution libraries or the project
