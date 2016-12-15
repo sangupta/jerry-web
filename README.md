@@ -1,7 +1,7 @@
 # jerry-web
 
 [![Build Status](https://travis-ci.org/sangupta/jerry-web.svg?branch=master)](https://travis-ci.org/sangupta/jerry-web)
-[![Coverage Status](https://coveralls.io/repos/sangupta/jerry-web/badge.png)](https://coveralls.io/r/sangupta/jerry-web)
+[![Coverage Status](https://coveralls.io/repos/github/sangupta/jerry-web/badge.svg?branch=master)](https://coveralls.io/github/sangupta/jerry-web?branch=master)
 [![Maven Version](https://maven-badges.herokuapp.com/maven-central/com.sangupta/jerry-web/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.sangupta/jerry-web)
 
 Common Java functionality for building web applications particularly working with `Servlets` and JSPs.
