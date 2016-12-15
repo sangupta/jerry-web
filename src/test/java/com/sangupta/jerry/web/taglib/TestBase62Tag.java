@@ -16,7 +16,7 @@ public class TestBase62Tag {
 		for(int run = 0; run < 1000; run++) {
 			long value = random.nextLong();
 
-			Base62Tag tag = AmTagLibTestHelper.getTagForUnitTesting(Base62Tag.class);
+			Base62Tag tag = AmTagLibTestHelper.getSimpleTagForUnitTesting(Base62Tag.class);
 			tag.setEncode(value);
 			AmTagLibTestHelper.doTag(tag);
 			Assert.assertEquals(Base62Encoder.encode(value), AmTagLibTestHelper.getJspWriter(tag).toString());
@@ -29,7 +29,7 @@ public class TestBase62Tag {
 //		for(int run = 0; run < 1000; run++) {
 //			long value = random.nextLong();
 //			
-//			Base62Tag tag = AmTagLibTestHelper.getTagForUnitTesting(Base62Tag.class);
+//			Base62Tag tag = AmTagLibTestHelper.getSimpleTagForUnitTesting(Base62Tag.class);
 //			tag.setDecode(Base62Encoder.encode(value));
 //			AmTagLibTestHelper.doTag(tag);
 //			

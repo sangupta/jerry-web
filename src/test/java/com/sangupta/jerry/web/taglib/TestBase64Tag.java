@@ -14,7 +14,7 @@ public class TestBase64Tag {
 		for(int run = 0; run < 1000; run++) {
 			String random = StringUtils.getRandomString(2048);
 
-			Base64Tag tag = AmTagLibTestHelper.getTagForUnitTesting(Base64Tag.class);
+			Base64Tag tag = AmTagLibTestHelper.getSimpleTagForUnitTesting(Base64Tag.class);
 			tag.setEncode(random);
 			AmTagLibTestHelper.doTag(tag);
 			
@@ -28,7 +28,7 @@ public class TestBase64Tag {
 			String random = StringUtils.getRandomString(2048);
 			String encoded = Base64Encoder.encodeToString(random.getBytes(), false);
 			
-			Base64Tag tag = AmTagLibTestHelper.getTagForUnitTesting(Base64Tag.class);
+			Base64Tag tag = AmTagLibTestHelper.getSimpleTagForUnitTesting(Base64Tag.class);
 			tag.setDecode(encoded);
 			AmTagLibTestHelper.doTag(tag);
 			

@@ -41,6 +41,13 @@
 		</developer>
 	</developers>
 
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -99,9 +106,9 @@
 		
 		<!-- for unit testing -->
 		<dependency>
-			<groupId>com.sangupta</groupId>
+			<groupId>com.github.sangupta</groupId>
 			<artifactId>am</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>-SNAPSHOT</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
