@@ -29,5 +29,7 @@ public class TestAnonymousTag {
 		AmBodyTagEvaluationResult result = AmTagLibTestHelper.doTag(tag);
 		
 		Assert.assertEquals(Tag.SKIP_BODY, result.startTagResult);
+		
+		SecurityContext.clearPrincipal();
 	}
 }

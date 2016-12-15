@@ -29,5 +29,7 @@ public class TestSignedInTag {
 		AmBodyTagEvaluationResult result = AmTagLibTestHelper.doTag(tag);
 		
 		Assert.assertEquals(Tag.EVAL_BODY_INCLUDE, result.startTagResult);
+		
+		SecurityContext.clearPrincipal();
 	}
 }
