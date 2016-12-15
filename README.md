@@ -1,5 +1,8 @@
-jerry-web
-==========
+# jerry-web
+
+[![Build Status](https://travis-ci.org/sangupta/jerry-web.svg?branch=master)](https://travis-ci.org/sangupta/jerry-web)
+[![Coverage Status](https://coveralls.io/repos/sangupta/jerry-web/badge.png)](https://coveralls.io/r/sangupta/jerry-web)
+[![Maven Version](https://maven-badges.herokuapp.com/maven-central/com.sangupta/jerry-web/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.sangupta/jerry-web)
 
 Common Java functionality for building web applications particularly working with `Servlets` and JSPs.
 
@@ -7,10 +10,14 @@ Common Java functionality for building web applications particularly working wit
 when writing Java web applications - such as common filters, request wrappers, and custom JSP tags. The utility
 classes are now a part of the `jerry-core` project.
 
-Release Notes
--------------
+## Release Notes
 
-**Current Development**
+
+**Current Development - 1.0.0-SNAPSHOT**
+
+* Removed all utility code that is now a part of the [jerry-core](https://github.com/sangupta/jerry-core) project
+* Added unit testing of all JSP custom tags using the [am](https://github.com/sangupta/am) project
+* Preparing for OSS release as **1.0.0**
 
 **Release 0.6.1**
 
