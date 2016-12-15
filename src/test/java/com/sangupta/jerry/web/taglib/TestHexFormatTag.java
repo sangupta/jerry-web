@@ -1,11 +1,9 @@
 package com.sangupta.jerry.web.taglib;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import com.sangupta.am.servlet2.helper.AmTagLibTestHelper;
 import com.sangupta.jerry.consume.GenericConsumer;
-import com.sangupta.jerry.encoder.Base62Encoder;
 
 public class TestHexFormatTag {
 
@@ -22,10 +20,14 @@ public class TestHexFormatTag {
 	
 	@Test
 	public void testValue() {
-		HexFormatTag tag = AmTagLibTestHelper.getSimpleTagForUnitTesting(HexFormatTag.class);
-		tag.setValue("255");
-		AmTagLibTestHelper.doTag(tag);
-		Assert.assertEquals("0xff", AmTagLibTestHelper.getJspWriter(tag).toString().toLowerCase());
+		AmTagLibTestHelper.testTagOutput(HexFormatTag.class, "ff", new GenericConsumer<HexFormatTag>() {
+			
+			public boolean consume(HexFormatTag tag) {
+				tag.setValue("255");
+				return true;
+			}
+			
+		});
 	}
 	
 	@Test
