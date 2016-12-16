@@ -26,7 +26,7 @@ import java.util.Random;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.sangupta.am.servlet2.helper.AmTagLibTestHelper;
+import com.sangupta.am.servlet.helper.AmTagLibTestHelper;
 import com.sangupta.jerry.encoder.Base62Encoder;
 
 public class TestBase62Tag {

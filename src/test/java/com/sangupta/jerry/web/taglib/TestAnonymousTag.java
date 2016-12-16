@@ -26,9 +26,9 @@ import javax.servlet.jsp.tagext.Tag;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.sangupta.am.servlet2.AmPrincipal;
-import com.sangupta.am.servlet2.helper.AmBodyTagEvaluationResult;
-import com.sangupta.am.servlet2.helper.AmTagLibTestHelper;
+import com.sangupta.am.servlet.AmPrincipal;
+import com.sangupta.am.servlet.helper.AmBodyTagEvaluationResult;
+import com.sangupta.am.servlet.helper.AmTagLibTestHelper;
 import com.sangupta.jerry.security.SecurityContext;
 
 public class TestAnonymousTag {

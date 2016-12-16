@@ -29,6 +29,10 @@ import javax.servlet.ServletOutputStream;
 import org.apache.commons.io.output.ByteArrayOutputStream;
 
 /**
+ * A {@link ServletOutputStream} implementation that writes everything to an
+ * underlying {@link java.io.ByteArrayOutputStream}. This allows us to see
+ * and manipulate what has been written by the servlet.
+ * 
  * @author sangupta
  *
  */
@@ -348,6 +352,18 @@ public class ByteArrayServletOutputStream extends ServletOutputStream {
      */
     @Override
     public boolean equals(Object obj) {
+    	if(obj == null) {
+    		return false;
+    	}
+    	
+    	if(this == obj) {
+    		return true;
+    	}
+    	
+    	if(!(obj instanceof ByteArrayServletOutputStream)) {
+    		return false;
+    	}
+    	
         return this.outputStream.equals(obj);
     }
 }

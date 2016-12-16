@@ -2,7 +2,7 @@ package com.sangupta.jerry.web.taglib;
 
 import org.junit.Test;
 
-import com.sangupta.am.servlet2.helper.AmTagLibTestHelper;
+import com.sangupta.am.servlet.helper.AmTagLibTestHelper;
 import com.sangupta.jerry.consume.GenericConsumer;
 
 public class TestHexFormatTag {
