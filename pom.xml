@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
 		<artifactId>oss-parent</artifactId>
-		<version>7</version>
+		<version>9</version>
 	</parent>
   
 	<modelVersion>4.0.0</modelVersion>
@@ -37,7 +37,7 @@
 			<id>sangupta</id>
 			<name>Sandeep Gupta</name>
 			<email>sandy.pec@gmail.com</email>
-			<url>http://www.sangupta.com</url>
+			<url>https://sangupta.com</url>
 		</developer>
 	</developers>
 
@@ -69,9 +69,9 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.github.sangupta</groupId>
+			<groupId>com.sangupta</groupId>
 			<artifactId>jerry-core</artifactId>
-			<version>-SNAPSHOT</version>
+			<version>3.0.0</version>
 		</dependency>
 		
 		<!-- Servlet APIs and all -->
@@ -106,9 +106,9 @@
 		
 		<!-- for unit testing -->
 		<dependency>
-			<groupId>com.github.sangupta</groupId>
+			<groupId>com.sangupta</groupId>
 			<artifactId>am</artifactId>
-			<version>-SNAPSHOT</version>
+			<version>1.0.0</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

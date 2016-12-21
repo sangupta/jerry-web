@@ -10,11 +10,11 @@ public class TestJavascriptMinificationFilter {
 
 	@Test
 	public void basicTests() {
-//		JavascriptMinificationFilter filter = AmServletFilterTestHelper.getFilterForUnitTesting(JavascriptMinificationFilter.class);
-//		
-//		AmHttpServletRequest request = AmHttpServletRequest.getDefault("home.html");
-//		AmHttpServletResponse response = new AmHttpServletResponse();
-//		
-//		AmServletFilterTestHelper.assertFilterChainInvoked(filter, request, response);;
+		JavascriptMinificationFilter filter = AmServletFilterTestHelper.getFilterForUnitTesting(JavascriptMinificationFilter.class);
+		
+		AmHttpServletRequest request = AmHttpServletRequest.getDefault("home.html");
+		AmHttpServletResponse response = new AmHttpServletResponse();
+		
+		AmServletFilterTestHelper.assertFilterChainInvoked(filter, request, response);;
 	}
 }
