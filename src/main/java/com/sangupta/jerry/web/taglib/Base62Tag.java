@@ -30,8 +30,11 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 import com.sangupta.jerry.encoder.Base62Encoder;
 
 /**
+ * Encode/decode the given value via {@link Base62Encoder}.
+ * 
  * @author sangupta
- *
+ * @since 1.0.0
+ * 
  */
 public class Base62Tag extends SimpleTagSupport {
 	

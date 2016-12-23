@@ -33,8 +33,12 @@ import com.sangupta.jerry.encoder.Base64Encoder;
 import com.sangupta.jerry.util.AssertUtils;
 
 /**
+ * Encode/decode the given value via {@link Base64Encoder} - optionally can
+ * store the encoded/decoded value in a request attribute.
+ * 
  * @author sangupta
- *
+ * @since 1.0.0
+ * 
  */
 public class Base64Tag extends SimpleTagSupport {
 	

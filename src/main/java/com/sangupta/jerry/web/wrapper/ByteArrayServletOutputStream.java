@@ -34,7 +34,7 @@ import org.apache.commons.io.output.ByteArrayOutputStream;
  * and manipulate what has been written by the servlet.
  * 
  * @author sangupta
- *
+ * @since 1.0.0
  */
 public class ByteArrayServletOutputStream extends ServletOutputStream {
 	
@@ -56,7 +56,7 @@ public class ByteArrayServletOutputStream extends ServletOutputStream {
 	/**
 	 * Return the writer object associated with this.
 	 * 
-	 * @return
+	 * @return the {@link PrintWriter} instance
 	 */
 	public PrintWriter getWriter() {
 		this.writerObtained = true;
@@ -66,7 +66,7 @@ public class ByteArrayServletOutputStream extends ServletOutputStream {
 	/**
 	 * Return the current size of the data that has been written.
 	 * 
-	 * @return
+	 * @return the length of the data so far written
 	 */
 	public int getLength() {
 		if (this.writerObtained) {
@@ -79,7 +79,7 @@ public class ByteArrayServletOutputStream extends ServletOutputStream {
 	/**
 	 * Get the entire byte-stream.
 	 * 
-	 * @return
+	 * @return the internal {@link ByteArrayOutputStream}
 	 */
 	public ByteArrayOutputStream getByteArrayOutputStream() {
 		return this.outputStream;
@@ -88,7 +88,7 @@ public class ByteArrayServletOutputStream extends ServletOutputStream {
 	/**
 	 * Get the raw bytes written to this stream.
 	 * 
-	 * @return
+	 * @return the raw <code>bytes</code> written so far
 	 */
 	public byte[] getBytes() {
 		if (this.writerObtained) {

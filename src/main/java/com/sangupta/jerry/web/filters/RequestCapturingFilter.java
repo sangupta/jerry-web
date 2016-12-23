@@ -41,7 +41,7 @@ import com.sangupta.jerry.util.GsonUtils;
  * information is logged at INFO level.
  * 
  * @author sangupta
- *
+ * @since 1.0.0
  */
 public class RequestCapturingFilter implements Filter {
 	
@@ -52,6 +52,27 @@ public class RequestCapturingFilter implements Filter {
 		// do nothing
 	}
 
+	/**
+	 * 
+	 * @param request
+	 *            the incoming {@link ServletRequest} instance
+	 * 
+	 * @param response
+	 *            the outgoing {@link ServletResponse} instance
+	 * 
+	 * @param chain
+	 *            the {@link FilterChain} being executed
+	 * 
+	 * @throws IOException
+	 *             if something fails
+	 * 
+	 * @throws ServletException
+	 *             if something fails
+	 *             
+	 * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest,
+	 *      javax.servlet.ServletResponse, javax.servlet.FilterChain)
+	 *      
+	 */
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		if(LOGGER.isInfoEnabled()) {

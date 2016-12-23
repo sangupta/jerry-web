@@ -34,7 +34,7 @@ import com.sangupta.jerry.util.UriUtils;
 
 /**
  * @author sangupta
- * 
+ * @since 1.0.0
  */
 public class JavascriptIncludeTag extends BodyTagSupport {
 

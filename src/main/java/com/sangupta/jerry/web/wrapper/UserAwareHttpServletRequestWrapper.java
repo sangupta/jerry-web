@@ -29,7 +29,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
 /**
  * 
  * @author sangupta
- *
+ * @since 1.0.0
  */
 public class UserAwareHttpServletRequestWrapper extends HttpServletRequestWrapper {
 	
@@ -43,6 +43,7 @@ public class UserAwareHttpServletRequestWrapper extends HttpServletRequestWrappe
 	 * Convenience constructor
 	 * 
 	 * @param request
+	 *            the {@link HttpServletRequest} instance to wrap around
 	 */
 	public UserAwareHttpServletRequestWrapper(HttpServletRequest request) {
 		super(request);
@@ -52,7 +53,10 @@ public class UserAwareHttpServletRequestWrapper extends HttpServletRequestWrappe
 	 * Convenience constructor
 	 * 
 	 * @param request
+	 *            the {@link HttpServletRequest} instance to wrap around
+	 * 
 	 * @param principal
+	 *            the user {@link Principal} to use
 	 */
 	public UserAwareHttpServletRequestWrapper(HttpServletRequest request, Principal principal) {
 		super(request);

@@ -31,7 +31,7 @@ import com.sangupta.jerry.util.AssertUtils;
 
 /**
  * @author sangupta
- *
+ * @since 1.0.0
  */
 public class CheckBoxTag extends SimpleTagSupport {
 	

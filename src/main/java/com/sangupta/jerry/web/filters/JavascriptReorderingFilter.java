@@ -51,7 +51,7 @@ import com.sangupta.jerry.web.wrapper.HttpServletResponseWrapperImpl;
  * parser to achieve the same.
  * 
  * @author sangupta
- *
+ * @since 1.0.0
  */
 public class JavascriptReorderingFilter implements Filter {
 	
@@ -67,6 +67,29 @@ public class JavascriptReorderingFilter implements Filter {
 		// do nothing
 	}
 
+	/**
+	 * Move all included JavaScript files to the end of <code>BODY</code> tag in the same order
+	 * that they appeared in the original HTML response.
+	 * 
+	 * @param servletRequest
+	 *            the incoming {@link ServletRequest} instance
+	 * 
+	 * @param servletResponse
+	 *            the outgoing {@link ServletResponse} instance
+	 * 
+	 * @param filterChain
+	 *            the {@link FilterChain} being executed
+	 * 
+	 * @throws IOException
+	 *             if something fails
+	 * 
+	 * @throws ServletException
+	 *             if something fails
+	 *             
+	 * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest,
+	 *      javax.servlet.ServletResponse, javax.servlet.FilterChain)
+	 *      
+	 */
 	@Override
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 		// try and see if this request is for an HTML page

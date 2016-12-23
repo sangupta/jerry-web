@@ -27,7 +27,11 @@ import javax.servlet.jsp.tagext.BodyTagSupport;
 import com.sangupta.jerry.security.SecurityContext;
 
 /**
+ * Include the body if the user is an anoymous user, as returned by the
+ * {@link SecurityContext#isAnonymousUser()} method.
+ * 
  * @author sangupta
+ * @since 1.0.0
  * 
  */
 public class AnonymousTag extends BodyTagSupport {

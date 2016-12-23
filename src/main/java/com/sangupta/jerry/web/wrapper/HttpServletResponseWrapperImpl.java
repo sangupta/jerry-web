@@ -42,7 +42,7 @@ import javax.servlet.http.HttpServletResponseWrapper;
  * response code etc.
  * 
  * @author sangupta
- *
+ * @since 1.0.0
  */
 public class HttpServletResponseWrapperImpl extends HttpServletResponseWrapper {
 
@@ -63,16 +63,24 @@ public class HttpServletResponseWrapperImpl extends HttpServletResponseWrapper {
     Locale locale;
 
     /**
-     *
-     * @param response
-     */
+	 * Create an instance of this wrapper from the given {@link ServletResponse}
+	 * instance, if the actual incoming instance is {@link HttpServletResponse}
+	 * 
+	 * @param response
+	 *            the {@link ServletResponse} instance
+	 * 
+	 */
     public HttpServletResponseWrapperImpl(ServletResponse response) {
         this((HttpServletResponse) response);
     }
 
     /**
-     * @param response
-     */
+	 * Create an instance of this wrapper from the given
+	 * {@link HttpServletResponse} instance
+	 * 
+	 * @param response
+	 *            the {@link HttpServletResponse} instance
+	 */
     public HttpServletResponseWrapperImpl(HttpServletResponse response) {
         super(response);
 
@@ -87,40 +95,58 @@ public class HttpServletResponseWrapperImpl extends HttpServletResponseWrapper {
     }
 
     /**
-     * Copy this response to the given {@link ServletResponse} instance.
-     * 
-     * @param response
-     * @throws IOException
-     */
+	 * Copy this response to the given {@link ServletResponse} instance.
+	 * 
+	 * @param response
+	 *            the {@link ServletResponse} instance to copy this response to
+	 * 
+	 * @throws IOException
+	 *             if anything fails
+	 */
     public void copyToResponse(ServletResponse response) throws IOException {
         this.copyToResponse((HttpServletResponse) response);
     }
 
     /**
-     * Copy the altered response to the given {@link ServletResponse} instance.
-     * 
-     * @param response
-     * @param alteredResponse
-     * @throws IOException
-     */
+	 * Copy the altered response to the given {@link ServletResponse} instance.
+	 * 
+	 * @param response
+	 *            the {@link ServletResponse} instance to copy this response to
+	 * 
+	 * @param alteredResponse
+	 *            the altered response to write
+	 * 
+	 * @throws IOException
+	 *             if anything fails
+	 */
     public void copyToResponse(ServletResponse response, byte[] alteredResponse) throws IOException {
         this.copyToResponse((HttpServletResponse) response, alteredResponse);
     }
 
     /**
-     * Copy this response with the given {@link HttpServletResponse} instance.
-     * 
-     * @param response
-     * @throws IOException
-     */
+	 * Copy this response with the given {@link HttpServletResponse} instance.
+	 * 
+	 * @param response
+	 *            the {@link HttpServletResponse} instance to write to
+	 * 
+	 * @throws IOException
+	 *             if anything fails
+	 */
     public void copyToResponse(HttpServletResponse response) throws IOException {
         this.copyToResponse(response, null);
     }
 
     /**
-     *
-     * @param response
-     * @throws IOException
+     * Copy the altered response to the given {@link HttpServletResponse} instance.
+	 * 
+	 * @param response
+	 *            the {@link HttpServletResponse} instance to copy this response to
+	 * 
+	 * @param alteredResponse
+	 *            the altered response to write
+	 * 
+	 * @throws IOException
+	 *             if anything fails
      */
     public void copyToResponse(HttpServletResponse response, byte[] alteredResponse) throws IOException {
         // character encoding

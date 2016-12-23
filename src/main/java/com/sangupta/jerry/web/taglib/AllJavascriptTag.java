@@ -37,7 +37,8 @@ import com.sangupta.jerry.util.AssertUtils;
  * location in the page.
  * 
  * @author sangupta
- *
+ * @since 1.0.0
+ * 
  */
 public class AllJavascriptTag extends SimpleTagSupport {
 

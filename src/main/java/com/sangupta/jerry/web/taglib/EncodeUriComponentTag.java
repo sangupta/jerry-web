@@ -37,7 +37,7 @@ import com.sangupta.jerry.util.UriUtils;
  * or saves as a request attribute.
  * 
  * @author sangupta
- *
+ * @since 1.0.0
  */
 public class EncodeUriComponentTag extends SimpleTagSupport {
 	

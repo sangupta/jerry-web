@@ -57,12 +57,18 @@ import com.sangupta.jerry.web.wrapper.ModifiedServletResponse;
  * using Google closure compiler.
  * 
  * @author sangupta
- *
+ * @since 1.0.0
  */
 public class JavascriptMinificationFilter implements Filter {
 	
+	/**
+	 * My internal logger
+	 */
 	private static final Logger LOGGER = LoggerFactory.getLogger(JavascriptMinificationFilter.class);
 
+	/**
+	 * Cache that holds minified files so that they can be served faster
+	 */
     private final Map<String, ModifiedServletResponse> CACHE = new HashMap<String, ModifiedServletResponse>();
 
 	@Override
@@ -78,6 +84,23 @@ public class JavascriptMinificationFilter implements Filter {
 	/**
 	 * Compress JS and CSS files using the Google compiler.
 	 * 
+	 * @param servletRequest
+	 *            the incoming {@link ServletRequest} instance
+	 * 
+	 * @param servletResponse
+	 *            the outgoing {@link ServletResponse} instance
+	 * 
+	 * @param filterChain
+	 *            the {@link FilterChain} being executed
+	 * 
+	 * @throws IOException
+	 *             if something fails
+	 * 
+	 * @throws ServletException
+	 *             if something fails
+	 *             
+	 * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest,
+	 *      javax.servlet.ServletResponse, javax.servlet.FilterChain)
 	 */
 	@Override
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -197,12 +220,16 @@ public class JavascriptMinificationFilter implements Filter {
     }
 
     /**
-     * Compress the Javascript.
-     * 
-     * @param uri
-     * @param code
-     * @return
-     */
+	 * Compress the Javascript.
+	 * 
+	 * @param uri
+	 *            the URI for the JS file
+	 * 
+	 * @param code
+	 *            the actual Javascript code
+	 * 
+	 * @return the compressed code for the JS file
+	 */
     private String compressJavascriptEmbedded(final String uri, final String code) {
         if(code == null || code.isEmpty()) {
             return code;
@@ -230,11 +257,13 @@ public class JavascriptMinificationFilter implements Filter {
     }
 
     /**
-     * UnGZIP a given byte stream.
-     * 
-     * @param bytes
-     * @return
-     */
+	 * UnGZIP a given byte stream.
+	 * 
+	 * @param bytes
+	 *            the byte-stream to unGZIP
+	 * 
+	 * @return the unGZIPed byte-array
+	 */
     private byte[] unGZip(byte[] bytes) {
         if(bytes == null || bytes.length == 0) {
             return bytes;
@@ -280,11 +309,14 @@ public class JavascriptMinificationFilter implements Filter {
     }
 
     /**
-     * Check if a byte stream is GZIP compressed or not.
-     * 
-     * @param bytes
-     * @return
-     */
+	 * Check if a byte stream is GZIP compressed or not.
+	 * 
+	 * @param bytes
+	 *            the byte-array representing the stream
+	 * 
+	 * @return <code>true</code> if its compressed with GZIP, <code>false</code>
+	 *         otherwise
+	 */
     private boolean isGZip(byte[] bytes) {
         if(bytes == null || bytes.length == 0) {
             return false;

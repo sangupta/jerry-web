@@ -30,8 +30,11 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 import com.sangupta.jerry.util.ReadableUtils;
 
 /**
+ * Show the human readable value for the given size in bytes. If the value
+ * is less than <code>0</code>, the tag does not do anything.
+ * 
  * @author sangupta
- *
+ * @since 1.0.0
  */
 public class FormatSizeTag extends SimpleTagSupport {
 	

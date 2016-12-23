@@ -32,7 +32,7 @@ import com.sangupta.jerry.util.TimeDurationUtils;
 
 /**
  * @author sangupta
- *
+ * @since 1.0.0
  */
 public class TimeAgoTag extends SimpleTagSupport {
 	

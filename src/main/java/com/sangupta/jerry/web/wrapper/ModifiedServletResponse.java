@@ -37,7 +37,7 @@ import javax.servlet.http.HttpServletResponse;
  * sent back to the client.
  * 
  * @author sangupta
- *
+ * @since 1.0.0
  */
 public class ModifiedServletResponse {
 
@@ -72,23 +72,29 @@ public class ModifiedServletResponse {
     }
 
     /**
-     * Copy this modified response to the given {@link ServletResponse} object. The flush method is
-     * invoked in the end.
-     * 
-     * @param response
-     * @throws java.io.IOException
-     */
+	 * Copy this modified response to the given {@link ServletResponse} object.
+	 * The flush method is invoked in the end.
+	 * 
+	 * @param response
+	 *            the {@link ServletResponse} instance
+	 * 
+	 * @throws java.io.IOException
+	 *             if anything fails
+	 */
     public void copyToResponse(ServletResponse response) throws IOException {
         this.copyToResponse((HttpServletResponse) response);
     }
 
     /**
-     * Copy this modified response to the given {@link HttpServletResponse} object. The flush method is
-     * invoked in the end.
-     * 
-     * @param response
-     * @throws IOException
-     */
+	 * Copy this modified response to the given {@link HttpServletResponse}
+	 * object. The flush method is invoked in the end.
+	 * 
+	 * @param response
+	 *            the {@link HttpServletResponse} instance
+	 * 
+	 * @throws IOException
+	 *             if anything fails
+	 */
     public void copyToResponse(HttpServletResponse response) throws IOException {
         // character encoding
         if(this.characterEncoding != null) {

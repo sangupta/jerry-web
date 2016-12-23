@@ -32,7 +32,7 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
  * the string is written back as is.
  * 
  * @author sangupta
- *
+ * @since 1.0.0
  */
 public class HexFormatTag extends SimpleTagSupport {
 	

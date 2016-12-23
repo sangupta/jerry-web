@@ -22,6 +22,8 @@
 package com.sangupta.jerry.web.filters;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -35,6 +37,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.sangupta.jerry.util.AssertUtils;
 import com.sangupta.jerry.util.DateUtils;
 
 /**
@@ -43,14 +46,50 @@ import com.sangupta.jerry.util.DateUtils;
  * number of calls.
  *
  * @author sangupta
+ * @since 1.0.0
  */
 public class LeverageBrowserCacheFilter implements Filter {
 
-    private static final String[] STATIC_RESOURCE_EXTENSIONS = { ".css", ".png" , ".js", ".gif", ".jpg" };
+    private static final Set<String> STATIC_RESOURCE_EXTENSIONS = new HashSet<>();
+    
+    static {
+    	STATIC_RESOURCE_EXTENSIONS.add(".css");
+    	STATIC_RESOURCE_EXTENSIONS.add(".png");
+    	STATIC_RESOURCE_EXTENSIONS.add(".js");
+    	STATIC_RESOURCE_EXTENSIONS.add(".git");
+    	STATIC_RESOURCE_EXTENSIONS.add(".jpg");
+    	STATIC_RESOURCE_EXTENSIONS.add(".jpeg");
+    	STATIC_RESOURCE_EXTENSIONS.add(".woff");
+    	STATIC_RESOURCE_EXTENSIONS.add(".bmp");
+    	STATIC_RESOURCE_EXTENSIONS.add(".tiff");
+    }
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LeverageBrowserCacheFilter.class);
     
     private static String ONE_YEAR_AS_SECONDS = String.valueOf(((long) DateUtils.ONE_YEAR / 1000l));
+    
+    /**
+	 * Add the given extension to the list of static resources.
+	 * 
+	 * @param extension
+	 *            the extension to add
+	 * 
+	 * @return <code>true</code> if extension was added, <code>false</code>
+	 *         otherwise
+	 */
+    public static boolean addStaticExtension(String extension) {
+    	if(AssertUtils.isEmpty(extension)) {
+    		return false;
+    	}
+    	
+    	if(!extension.startsWith(".")) {
+    		extension = "." + extension;
+    	}
+    	
+    	extension = extension.toLowerCase();
+    	
+    	return STATIC_RESOURCE_EXTENSIONS.add(extension);
+    }
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -63,13 +102,27 @@ public class LeverageBrowserCacheFilter implements Filter {
     }
 
     /**
-     *
-     * @param servletRequest
-     * @param servletResponse
-     * @param filterChain
-     * @throws IOException
-     * @throws ServletException
-     */
+	 * Execute the filter by appending the <b>Expires</b> and
+	 * <b>Cache-Control</b> response headers.
+	 * 
+	 * @param servletRequest
+	 *            the incoming {@link ServletRequest} instance
+	 * 
+	 * @param servletResponse
+	 *            the outgoing {@link ServletResponse} instance
+	 * 
+	 * @param filterChain
+	 *            the {@link FilterChain} being executed
+	 * 
+	 * @throws IOException
+	 *             if something fails
+	 * 
+	 * @throws ServletException
+	 *             if something fails
+	 * 
+	 * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest,
+	 *      javax.servlet.ServletResponse, javax.servlet.FilterChain)
+	 */
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
@@ -109,13 +162,7 @@ public class LeverageBrowserCacheFilter implements Filter {
         }
 
         String currentExtension = uri.substring(index);
-        for(String extension : STATIC_RESOURCE_EXTENSIONS) {
-            if(extension.equals(currentExtension)) {
-                return true;
-            }
-        }
-
-        // nothing found
-        return false;
+        
+        return STATIC_RESOURCE_EXTENSIONS.contains(currentExtension);
     }
 }
