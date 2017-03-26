@@ -110,7 +110,7 @@ public class ExceptionCatchingFilter implements Filter {
 				throw new RuntimeException(t);
 			}
 			
-			throw new RuntimeException(errorMessage + "uuid");
+			throw new RuntimeException(errorMessage + uuid);
 		}
 	}
 
