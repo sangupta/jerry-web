@@ -12,14 +12,19 @@ classes are now a part of the `jerry-core` project.
 
 ## Release Notes
 
+**Release 1.1.0 (20 Dec 2017)**
 
-**Current Development - 1.0.0-SNAPSHOT**
+* Added a `GsonTag` for converting object to JSON inside a JSP
+* Fixed bug in `ExceptionCatchingFilter` to log actual UUID of error object
+* Upgraded `JSoup` version to latest
+
+**Release 1.0.0 (23 Dec 2016)**
 
 * Removed all utility code that is now a part of the [jerry-core](https://github.com/sangupta/jerry-core) project
 * Added unit testing of all JSP custom tags using the [am](https://github.com/sangupta/am) project
 * Preparing for OSS release as **1.0.0**
 
-**Release 0.6.1**
+**Release 0.6.1 (09 Nov 2014)**
 
 * Fixed date/time to output as long value in `GsonJsonProvider`
 * Added method to extract URI from ServletRequest to `RequestUtils`
@@ -31,7 +36,7 @@ classes are now a part of the `jerry-core` project.
 * Added log guards and javadocs
 * Added missing copyright headers
 
-**Release 0.5.0**
+**Release 0.5.0 (07 Feb 2014)**
 
 * Added GSON based jersey JSON provider
 * Added XStream based jersey XML provider
