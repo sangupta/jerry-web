@@ -249,4 +249,15 @@
 		</attribute>
 	</tag>
 	
+	<tag>
+		<name>json</name>
+		<tag-class>com.sangupta.jerry.web.taglib.GsonTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>object</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
 </taglib>
