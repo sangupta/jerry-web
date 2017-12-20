@@ -5,7 +5,7 @@
 
     <groupId>com.sangupta</groupId>
     <artifactId>jerry-web</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
 
     <name>Jerry Web</name>
@@ -24,7 +24,8 @@
         <connection>scm:git:ssh://git@github.com/sangupta/jerry-web.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/sangupta/jerry-web.git</developerConnection>
         <url>https://github.com/sangupta/jerry-web</url>
-    </scm>
+      <tag>jerry-web-1.1.0</tag>
+  </scm>
 
     <developers>
         <developer>
