@@ -1,8 +1,8 @@
 # jerry-web
 
-[![Build Status](https://travis-ci.org/sangupta/jerry-web.svg?branch=master)](https://travis-ci.org/sangupta/jerry-web)
-[![Coverage Status](https://coveralls.io/repos/github/sangupta/jerry-web/badge.svg?branch=master)](https://coveralls.io/github/sangupta/jerry-web?branch=master)
-[![Maven Version](https://maven-badges.herokuapp.com/maven-central/com.sangupta/jerry-web/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.sangupta/jerry-web)
+[![Travis](https://img.shields.io/travis/sangupta/jerry-web.svg)]()
+[![Coveralls](https://img.shields.io/coveralls/sangupta/jerry-web.svg)]()
+[![license](https://img.shields.io/github/license/sangupta/jerry-web.svg)]()
 
 Common Java functionality for building web applications particularly working with `Servlets` and JSPs.
 
@@ -68,8 +68,7 @@ classes are now a part of the `jerry-core` project.
  * HttpServletResponseWrapper
  * ModifiedServletResponse
 
-Downloads
----------
+## Downloads
 
 The library can be downloaded from Maven Central using:
 
@@ -77,12 +76,11 @@ The library can be downloaded from Maven Central using:
 <dependency>
     <groupId>com.sangupta</groupId>
     <artifactId>jerry-web</artifactId>
-    <version>0.6.1</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
-Versioning
-----------
+## Versioning
 
 For transparency and insight into our release cycle, and for striving to maintain backward compatibility, 
 `jerry-web` will be maintained under the Semantic Versioning guidelines as much as possible.
@@ -99,8 +97,7 @@ And constructed with the following guidelines:
 
 For more information on SemVer, please visit http://semver.org/.
 
-License
--------
+## License
 
 ```
 jerry-web: Common Servlet/JSP Functionality
